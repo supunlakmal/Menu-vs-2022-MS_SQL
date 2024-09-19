@@ -7,11 +7,22 @@
 	<div class="row">
 		@foreach (var item in Model)
 		{
-			<div>
-				<h2>@item.Name</h2>
-				<p>@item.ImageUrl</p>
-				<p>@item.Price</p>
+			<div class="col-6">
+				<div class="d-flex justify-content-center">
+					<h2>@item.Name</h2>
+					</div>
+				<div class="d-flex justify-content-center">
+					<img src="@item.ImageUrl" alt="@item.Name" />
+					</div>
+
+				<div class="d-flex justify-content-center">
+					<h2>@item.Price.ToString("N2") Dollars</h2>
+				</div>	
+				<div class="d-flex justify-content-center">
+					<a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">View </a>
 				</div>
+				</div>
+		
 		}
 
 	</div>

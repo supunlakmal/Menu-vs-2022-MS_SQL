@@ -23,9 +23,9 @@ namespace Menu.Data
                 .HasOne(di => di.Ingredient).WithMany(i => i.DishIngredients).HasForeignKey(di => di.IngredientId);
 
             modelBuilder.Entity<Dish>().HasData(
-                new Dish { Id = 1, Name = "Pizza", Price = 10.99, ImageUrl = "https://www.google.com" },
-                new Dish { Id = 2, Name = "Burger", Price = 5.99, ImageUrl = "https://www.google.com" },
-                new Dish { Id = 3, Name = "Pasta", Price = 8.99, ImageUrl = "https://www.google.com" }
+                new Dish { Id = 1, Name = "Pizza", Price = 10.99, ImageUrl = "https://picsum.photos/seed/picsum/200/300" },
+                new Dish { Id = 2, Name = "Burger", Price = 5.99, ImageUrl = "https://picsum.photos/seed/picsum/200/300" },
+                new Dish { Id = 3, Name = "Pasta", Price = 8.99, ImageUrl = "https://picsum.photos/seed/picsum/200/300" }
             );
 
             // add 3 ingredients

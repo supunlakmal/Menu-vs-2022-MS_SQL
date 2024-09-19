@@ -16,5 +16,24 @@ namespace Menu.Controllers
         {
             return View( await _context.Dishes.ToListAsync() );
         }
-    }
+
+        public async Task<IActionResult> Details(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+
+			var dish = await _context.Dishes
+				.Include(d => d.DishIngredients)
+				.ThenInclude(di => di.Ingredient)
+				.FirstOrDefaultAsync(m => m.Id == id);
+			if (dish == null)
+			{
+				return NotFound();
+			}
+
+			return View(dish);
+		}
+	}
 }
